@@ -1,8 +1,8 @@
 #include <ArduinoJson.h>
-#include <NeonTiming/serial/serialManager.h>
-#include <NeonTiming/web-socket/webSocketServer.h>
 #include <WiFi.h>
 #include <helpers/helpers.h>
+#include <serial/serialManager.h>
+#include <web-socket/webSocketServer.h>
 
 #include <string>
 
