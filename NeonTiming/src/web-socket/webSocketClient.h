@@ -4,7 +4,7 @@
 
 #include <WebSocketsServer.h>
 
-#include "neon-timing/client/client.h"
+#include "client/client.h"
 
 class NeonTimingWebSocketClient : public NeonTimingClient {
  private:
