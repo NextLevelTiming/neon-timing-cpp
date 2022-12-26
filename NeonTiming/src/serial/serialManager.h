@@ -2,7 +2,7 @@
 
 #define NT_SERIAL_MANAGER_H
 
-#include "neon-timing/serial/serialClient.h"
+#include "serial/serialClient.h"
 
 class NeonTimingSerialManager {
  private:

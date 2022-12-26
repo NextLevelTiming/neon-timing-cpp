@@ -2,7 +2,7 @@
 
 #define NT_SERIAL_CLIENT_H
 
-#include "neon-timing/client/client.h"
+#include "client/client.h"
 
 class NeonTimingSerialClient : public NeonTimingClient {
  private:
