@@ -3,6 +3,13 @@
         "main"
     ],
     "plugins": [
+        [
+            "@semantic-release/exec",
+            {
+                "prepareCmd": "sed -i 's/\"version\": \"[0-9\\.]*\",/\"version\": \"${nextRelease.version}\",/g' library.json",
+                "publishCmd": "pio pkg publish"
+            }
+        ],
         "@semantic-release/github"
     ]
 }
