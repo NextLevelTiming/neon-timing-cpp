@@ -11,6 +11,7 @@
                 "publishCmd": "pio pkg publish --no-interactive"
             }
         ],
-        "@semantic-release/github"
+        "@semantic-release/github",
+        "@semantic-release/git"
     ]
 }
