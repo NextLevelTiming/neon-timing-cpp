@@ -10,13 +10,13 @@
 const byte serialBufferSize = 201;
 char serialBuffer[serialBufferSize];
 
+const char *deviceID = "1234";
 const char *deviceName = "Race Hub";
 const std::vector<std::string> supportedEvents = {"*"};
 
 int WS_PORT = 3001;
-NeonTimingWebSocketServer NTWSServer(Helpers::getDeviceID(), deviceName, supportedEvents, WS_PORT);
-NeonTimingSerialManager NTSerialManager(Helpers::getDeviceID(), deviceName, supportedEvents, serialBuffer,
-                                        serialBufferSize);
+NeonTimingWebSocketServer NTWSServer(deviceID, deviceName, supportedEvents, WS_PORT);
+NeonTimingSerialManager NTSerialManager(deviceID, deviceName, supportedEvents, serialBuffer, serialBufferSize);
 NeonTimingSerialClient *NTSerialClient;
 
 // WiFi AP
@@ -37,7 +37,7 @@ void setup() {
 
   // setup wifi
   std::string apSSID = WIFI_SSID_PREFIX;
-  apSSID.append(Helpers::getDeviceID());
+  apSSID.append(deviceID);
 
   char str[201];
   snprintf(str, sizeof(str), "\"evt\":\"log\",\"message\":\"Setting up WiFi AP\",\"ssid\":\"%s\"", apSSID.c_str());
@@ -84,8 +84,7 @@ void onSerialCommand(JsonDocument &messageDoc) {
     return;
   }
 
-  NTWSServer.broadcastJsonCommandMessage(messageDoc["cmd"], messageDoc);
-  messagesSentCount += NTWSServer.connectedClients();
+  // Process the command: messageDoc["cmd"]
 }
 
 void onWSEvent(NTEventType type, uint8_t clientId) {
@@ -114,6 +113,5 @@ void onWSCommand(JsonDocument &messageDoc) {
     return;
   }
 
-  NTSerialClient->sendJsonCommandMessage(messageDoc["cmd"], messageDoc);
-  messagesSentCount++;
+  // Process the command: messageDoc["cmd"]
 }
