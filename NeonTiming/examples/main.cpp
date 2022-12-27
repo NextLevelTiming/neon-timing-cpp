@@ -1,6 +1,5 @@
 #include <ArduinoJson.h>
 #include <WiFi.h>
-#include <helpers/helpers.h>
 #include <serial/serialManager.h>
 #include <web-socket/webSocketServer.h>
 
@@ -11,7 +10,7 @@ const byte serialBufferSize = 201;
 char serialBuffer[serialBufferSize];
 
 const char *deviceID = "1234";
-const char *deviceName = "Race Hub";
+const char *deviceName = "Example Device";
 const std::vector<std::string> supportedEvents = {"*"};
 
 int WS_PORT = 3001;
