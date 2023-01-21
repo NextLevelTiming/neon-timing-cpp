@@ -107,8 +107,8 @@ void NeonTimingClient::sendJsonCommandMessage(const char *cmd, JsonDocument &mes
 
 void NeonTimingClient::sendCommandMessage(const char *cmd, const char *properties) {
   char str[201];
-  snprintf(str, sizeof(str), "{\"cmd\":\"%s\",%s,\"protocol\":\"NT1\",\"time\":\"%lu\",\"did\":\"%s\"}", cmd,
-           properties, millis(), deviceId.c_str());
+  snprintf(str, sizeof(str), "{\"cmd\":\"%s\",%s,\"protocol\":\"NT1\",\"time\":%lu,\"did\":\"%s\"}", cmd, properties,
+           millis(), deviceId.c_str());
   sendMessage(str);
 }
 
