@@ -4,6 +4,8 @@
     ],
     "plugins": [
         "@semantic-release/commit-analyzer",
+        "@semantic-release/changelog",
+        "@semantic-release/release-notes-generator",
         [
             "@semantic-release/exec",
             {
@@ -16,7 +18,8 @@
             "@semantic-release/git",
             {
                 "assets": [
-                    "NeonTiming/library.json"
+                    "NeonTiming/library.json",
+                    "CHANGELOG.md"
                 ],
                 "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
             }

@@ -16,9 +16,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - run: npm install -g @semantic-release/github
       - run: npm install -g semantic-release@v19.0.5
       - run: npm install -g @semantic-release/exec
       - run: npm install -g @semantic-release/git
+      - run: npm install -g @semantic-release/release-notes-generator
+      - run: npm install -g @semantic-release/changelog
       - name: Cache pip
         uses: actions/cache@v2
         with:
