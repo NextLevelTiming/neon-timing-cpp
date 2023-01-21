@@ -37,7 +37,7 @@
         "src/web-socket/webSocketClient.h",
         "src/web-socket/webSocketServer.h"
     ],
-    "version": "1.0.11",
+    "version": "1.0.12",
     "frameworks": "arduino",
     "platforms": "espressif32"
 }
