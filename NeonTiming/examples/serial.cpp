@@ -12,6 +12,9 @@ const char *deviceID = "1234";
 const char *deviceName = "Example Device";
 const std::vector<std::string> supportedEvents = {"*"};
 
+NeonTimingSerialManager NTSerialManager(deviceID, deviceName, supportedEvents, serialBuffer, serialBufferSize);
+NeonTimingSerialClient *NTSerialClient;
+
 void onSerialEvent(NTEventType type);
 void onEventCommand(JsonDocument &messageDoc);
 
